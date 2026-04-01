@@ -31,8 +31,10 @@ class LumaServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        $this->publishes([
-            __DIR__.'/../../config/luma.php' => $this->app->configPath('luma.php'),
-        ], 'luma-config');
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../../config/luma.php' => $this->app->configPath('luma.php'),
+            ], 'luma-config');
+        }
     }
 }

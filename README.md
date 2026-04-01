@@ -1,6 +1,10 @@
 # Luma SDK
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/laravel-gtm/luma-sdk.svg?style=flat-square)](https://packagist.org/packages/laravel-gtm/luma-sdk)
 [![Tests](https://github.com/laravel-gtm/luma-sdk/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/laravel-gtm/luma-sdk/actions/workflows/tests.yml)
+[![Total Downloads](https://img.shields.io/packagist/dt/laravel-gtm/luma-sdk.svg?style=flat-square)](https://packagist.org/packages/laravel-gtm/luma-sdk)
+[![PHP Version](https://img.shields.io/packagist/php-v/laravel-gtm/luma-sdk.svg?style=flat-square)](https://packagist.org/packages/laravel-gtm/luma-sdk)
+[![License](https://img.shields.io/packagist/l/laravel-gtm/luma-sdk.svg?style=flat-square)](https://packagist.org/packages/laravel-gtm/luma-sdk)
 
 Laravel-ready PHP SDK for Luma REST APIs built with Saloon.
 
