@@ -1,0 +1,49 @@
+{
+    "name": "laravel-gtm/luma-sdk",
+    "description": "Laravel-ready PHP SDK for Luma REST APIs.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.4",
+        "illuminate/support": "^11.0 || ^12.0",
+        "saloonphp/saloon": "^4.0",
+        "saloonphp/laravel-plugin": "^4.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.21",
+        "larastan/larastan": "^3.0",
+        "pestphp/pest": "^3.8",
+        "phpstan/phpstan": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaravelGtm\\LumaSdk\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LaravelGtm\\LumaSdk\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "test:coverage": "pest --coverage",
+        "lint": "pint --test",
+        "format": "pint",
+        "analyse": "phpstan analyse"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaravelGtm\\LumaSdk\\Laravel\\LumaServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
