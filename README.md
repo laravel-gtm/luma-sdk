@@ -1,6 +1,6 @@
 # Luma SDK
 
-[![Tests](https://github.com/laravel-gtm/luma-sdk/actions/workflows/tests.yml/badge.svg)](https://github.com/laravel-gtm/luma-sdk/actions/workflows/tests.yml)
+[![Tests](https://github.com/laravel-gtm/luma-sdk/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/laravel-gtm/luma-sdk/actions/workflows/tests.yml)
 
 Laravel-ready PHP SDK for Luma REST APIs built with Saloon.
 
