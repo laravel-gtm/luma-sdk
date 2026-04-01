@@ -19,11 +19,11 @@ jobs:
           php-version: "8.4"
           coverage: none
 
-      - name: Install dependencies
-        run: composer install --no-interaction --no-progress --prefer-dist
+      - name: Install Pint
+        run: composer global require laravel/pint
 
       - name: Run Pint
-        run: composer format
+        run: pint
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
