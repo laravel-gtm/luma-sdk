@@ -7,7 +7,7 @@ Laravel-ready PHP SDK for Luma REST APIs built with Saloon.
 ## Requirements
 
 - PHP `^8.4`
-- Laravel `^11.0 || ^12.0` (for service provider + config integration)
+- Laravel `^11.0 || ^12.0 || ^13.0` (for service provider + config integration)
 
 ## Installation
 
