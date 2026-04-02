@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-04-02
+
+### Changed
+- `EventResponse.geoAddressJson` now returns `?GooglePlaceId` instead of `?array`
+- `EntityResponse.calendar` and `EntityResponse.event` now return typed DTOs (`?CalendarResponse`, `?EventResponse`) instead of `?array`
+- Request classes (`CreateEventRequest`, `UpdateEventRequest`, `AddCalendarEventRequest`, coupon and ticket-type requests) now accept `LumaDate` for date parameters and `GooglePlaceId` for location parameters instead of raw strings/arrays
+
+### Fixed
+- `GooglePlaceId` value object was defined but never used in response or request classes
+- All 54 request tests now assert HTTP method (`GET`/`POST`) and verify query/body parameters
+- `CLAUDE.md` documentation incorrectly referenced `TokenAuthenticator` instead of `HeaderAuthenticator`
+
 ## [0.1.2] - 2026-04-02
 
 ### Added
@@ -39,7 +51,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Orchestra Testbench test infrastructure
 - Pint auto-fix CI workflow
 
-[Unreleased]: https://github.com/laravel-gtm/luma-sdk/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/laravel-gtm/luma-sdk/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/laravel-gtm/luma-sdk/compare/v0.1.2...v0.2.0
 [0.1.2]: https://github.com/laravel-gtm/luma-sdk/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/laravel-gtm/luma-sdk/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/laravel-gtm/luma-sdk/compare/v0.0.1...v0.1.0
