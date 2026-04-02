@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace LaravelGtm\LumaSdk\Responses;
 
 use LaravelGtm\LumaSdk\Enums\Visibility;
+use LaravelGtm\LumaSdk\ValueObjects\GooglePlaceId;
 use LaravelGtm\LumaSdk\ValueObjects\LumaDate;
 use LaravelGtm\LumaSdk\ValueObjects\LumaDuration;
 
@@ -12,7 +13,6 @@ class EventResponse
 {
     /**
      * @param  array<mixed>  $registrationQuestions
-     * @param  array<string, mixed>|null  $geoAddressJson
      */
     public function __construct(
         public readonly string $id,
@@ -26,7 +26,7 @@ class EventResponse
         public readonly string $name,
         public readonly ?string $description,
         public readonly ?string $descriptionMd,
-        public readonly ?array $geoAddressJson,
+        public readonly ?GooglePlaceId $geoAddressJson,
         public readonly ?float $geoLatitude,
         public readonly ?float $geoLongitude,
         public readonly ?string $meetingUrl,
@@ -58,7 +58,7 @@ class EventResponse
             name: (string) $data['name'],
             description: isset($data['description']) ? (string) $data['description'] : null,
             descriptionMd: isset($data['description_md']) ? (string) $data['description_md'] : null,
-            geoAddressJson: isset($data['geo_address_json']) ? (array) $data['geo_address_json'] : null,
+            geoAddressJson: isset($data['geo_address_json']) && is_array($data['geo_address_json']) && isset($data['geo_address_json']['place_id']) ? GooglePlaceId::fromArray($data['geo_address_json']) : null,
             geoLatitude: isset($data['geo_latitude']) ? (float) $data['geo_latitude'] : null,
             geoLongitude: isset($data['geo_longitude']) ? (float) $data['geo_longitude'] : null,
             meetingUrl: isset($data['meeting_url']) ? (string) $data['meeting_url'] : null,

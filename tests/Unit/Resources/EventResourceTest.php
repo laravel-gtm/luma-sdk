@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use LaravelGtm\LumaSdk\LumaConnector;
 use LaravelGtm\LumaSdk\LumaSdk;
+use LaravelGtm\LumaSdk\ValueObjects\LumaDate;
 use LaravelGtm\LumaSdk\Requests\Events\CancelEventRequest;
 use LaravelGtm\LumaSdk\Requests\Events\CreateEventCouponRequest;
 use LaravelGtm\LumaSdk\Requests\Events\CreateEventRequest;
@@ -77,7 +78,7 @@ it('creates an event and returns api id', function (): void {
     $sdk = new LumaSdk($connector);
     $apiId = $sdk->events()->create(new CreateEventRequest(
         name: 'New Event',
-        startAt: '2024-06-15T18:00:00.000Z',
+        startAt: LumaDate::fromString('2024-06-15T18:00:00.000Z'),
         timezone: 'America/New_York',
     ));
 

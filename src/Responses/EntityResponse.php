@@ -8,14 +8,10 @@ use LaravelGtm\LumaSdk\Enums\EntityType;
 
 class EntityResponse
 {
-    /**
-     * @param  array<string, mixed>|null  $calendar
-     * @param  array<string, mixed>|null  $event
-     */
     public function __construct(
         public readonly EntityType $type,
-        public readonly ?array $calendar,
-        public readonly ?array $event,
+        public readonly ?CalendarResponse $calendar,
+        public readonly ?EventResponse $event,
     ) {}
 
     /**
@@ -25,8 +21,8 @@ class EntityResponse
     {
         return new self(
             type: EntityType::from((string) $data['type']),
-            calendar: isset($data['calendar']) ? (array) $data['calendar'] : null,
-            event: isset($data['event']) ? (array) $data['event'] : null,
+            calendar: isset($data['calendar']) ? CalendarResponse::fromArray((array) $data['calendar']) : null,
+            event: isset($data['event']) ? EventResponse::fromArray((array) $data['event']) : null,
         );
     }
 }

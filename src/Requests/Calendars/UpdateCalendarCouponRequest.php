@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LaravelGtm\LumaSdk\Requests\Calendars;
 
+use LaravelGtm\LumaSdk\ValueObjects\LumaDate;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -18,8 +19,8 @@ class UpdateCalendarCouponRequest extends Request implements HasBody
     public function __construct(
         private readonly string $code,
         private readonly ?int $remainingCount = null,
-        private readonly ?string $validStartAt = null,
-        private readonly ?string $validEndAt = null,
+        private readonly ?LumaDate $validStartAt = null,
+        private readonly ?LumaDate $validEndAt = null,
     ) {}
 
     public function resolveEndpoint(): string
@@ -32,8 +33,8 @@ class UpdateCalendarCouponRequest extends Request implements HasBody
         return array_filter([
             'code' => $this->code,
             'remaining_count' => $this->remainingCount,
-            'valid_start_at' => $this->validStartAt,
-            'valid_end_at' => $this->validEndAt,
+            'valid_start_at' => $this->validStartAt?->toString(),
+            'valid_end_at' => $this->validEndAt?->toString(),
         ], fn (mixed $value): bool => $value !== null);
     }
 }

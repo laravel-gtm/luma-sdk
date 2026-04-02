@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace LaravelGtm\LumaSdk\Requests\Events;
 
 use LaravelGtm\LumaSdk\Enums\Visibility;
+use LaravelGtm\LumaSdk\ValueObjects\GooglePlaceId;
+use LaravelGtm\LumaSdk\ValueObjects\LumaDate;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -19,20 +21,19 @@ class CreateEventRequest extends Request implements HasBody
     /**
      * @param  array<mixed>|null  $registrationQuestions
      * @param  array{longitude: float, latitude: float}|null  $coordinate
-     * @param  array<string, mixed>|null  $geoAddressJson
      * @param  array{enabled: bool, delay?: string}|null  $feedbackEmail
      */
     public function __construct(
         private readonly string $name,
-        private readonly string $startAt,
+        private readonly LumaDate $startAt,
         private readonly string $timezone,
-        private readonly ?string $endAt = null,
+        private readonly ?LumaDate $endAt = null,
         private readonly ?string $descriptionMd = null,
         private readonly ?string $coverUrl = null,
         private readonly ?string $slug = null,
         private readonly ?string $meetingUrl = null,
         private readonly ?array $coordinate = null,
-        private readonly ?array $geoAddressJson = null,
+        private readonly ?GooglePlaceId $geoAddressJson = null,
         private readonly ?int $maxCapacity = null,
         private readonly ?Visibility $visibility = null,
         private readonly ?string $tintColor = null,
@@ -54,15 +55,15 @@ class CreateEventRequest extends Request implements HasBody
     {
         return array_filter([
             'name' => $this->name,
-            'start_at' => $this->startAt,
+            'start_at' => $this->startAt->toString(),
             'timezone' => $this->timezone,
-            'end_at' => $this->endAt,
+            'end_at' => $this->endAt?->toString(),
             'description_md' => $this->descriptionMd,
             'cover_url' => $this->coverUrl,
             'slug' => $this->slug,
             'meeting_url' => $this->meetingUrl,
             'coordinate' => $this->coordinate,
-            'geo_address_json' => $this->geoAddressJson,
+            'geo_address_json' => $this->geoAddressJson?->toArray(),
             'max_capacity' => $this->maxCapacity,
             'visibility' => $this->visibility?->value,
             'tint_color' => $this->tintColor,

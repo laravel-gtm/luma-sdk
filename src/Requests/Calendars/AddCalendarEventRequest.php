@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace LaravelGtm\LumaSdk\Requests\Calendars;
 
+use LaravelGtm\LumaSdk\ValueObjects\GooglePlaceId;
+use LaravelGtm\LumaSdk\ValueObjects\LumaDate;
+use LaravelGtm\LumaSdk\ValueObjects\LumaDuration;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -23,17 +26,16 @@ class AddCalendarEventRequest extends Request implements HasBody
     ) {}
 
     /**
-     * @param  array<string, mixed>|null  $geoAddressJson
      * @param  array{longitude: float, latitude: float}|null  $coordinate
      */
     public static function forExternal(
         string $url,
         string $name,
-        string $startAt,
-        string $durationInterval,
+        LumaDate $startAt,
+        LumaDuration $durationInterval,
         string $timezone,
         ?string $submissionMode = null,
-        ?array $geoAddressJson = null,
+        ?GooglePlaceId $geoAddressJson = null,
         ?string $host = null,
         ?float $geoLongitude = null,
         ?float $geoLatitude = null,
@@ -43,11 +45,11 @@ class AddCalendarEventRequest extends Request implements HasBody
             'platform' => 'external',
             'url' => $url,
             'name' => $name,
-            'start_at' => $startAt,
-            'duration_interval' => $durationInterval,
+            'start_at' => $startAt->toString(),
+            'duration_interval' => $durationInterval->toString(),
             'timezone' => $timezone,
             'submission_mode' => $submissionMode,
-            'geo_address_json' => $geoAddressJson,
+            'geo_address_json' => $geoAddressJson?->toArray(),
             'host' => $host,
             'geo_longitude' => $geoLongitude,
             'geo_latitude' => $geoLatitude,

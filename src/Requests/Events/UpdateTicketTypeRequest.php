@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LaravelGtm\LumaSdk\Requests\Events;
 
+use LaravelGtm\LumaSdk\ValueObjects\LumaDate;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -22,8 +23,8 @@ class UpdateTicketTypeRequest extends Request implements HasBody
         private readonly ?bool $requireApproval = null,
         private readonly ?bool $isHidden = null,
         private readonly ?string $description = null,
-        private readonly ?string $validStartAt = null,
-        private readonly ?string $validEndAt = null,
+        private readonly ?LumaDate $validStartAt = null,
+        private readonly ?LumaDate $validEndAt = null,
         private readonly ?int $maxCapacity = null,
         private readonly ?int $cents = null,
         private readonly ?string $currency = null,
@@ -45,8 +46,8 @@ class UpdateTicketTypeRequest extends Request implements HasBody
             'require_approval' => $this->requireApproval,
             'is_hidden' => $this->isHidden,
             'description' => $this->description,
-            'valid_start_at' => $this->validStartAt,
-            'valid_end_at' => $this->validEndAt,
+            'valid_start_at' => $this->validStartAt?->toString(),
+            'valid_end_at' => $this->validEndAt?->toString(),
             'max_capacity' => $this->maxCapacity,
             'cents' => $this->cents,
             'currency' => $this->currency,

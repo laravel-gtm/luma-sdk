@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LaravelGtm\LumaSdk\Requests\Events;
 
+use LaravelGtm\LumaSdk\ValueObjects\LumaDate;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -23,8 +24,8 @@ class CreateEventCouponRequest extends Request implements HasBody
         private readonly string $code,
         private readonly array $discount,
         private readonly ?int $remainingCount = null,
-        private readonly ?string $validStartAt = null,
-        private readonly ?string $validEndAt = null,
+        private readonly ?LumaDate $validStartAt = null,
+        private readonly ?LumaDate $validEndAt = null,
     ) {}
 
     public function resolveEndpoint(): string
@@ -39,8 +40,8 @@ class CreateEventCouponRequest extends Request implements HasBody
             'code' => $this->code,
             'discount' => $this->discount,
             'remaining_count' => $this->remainingCount,
-            'valid_start_at' => $this->validStartAt,
-            'valid_end_at' => $this->validEndAt,
+            'valid_start_at' => $this->validStartAt?->toString(),
+            'valid_end_at' => $this->validEndAt?->toString(),
         ], fn (mixed $value): bool => $value !== null);
     }
 }

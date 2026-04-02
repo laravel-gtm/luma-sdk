@@ -22,7 +22,7 @@ This is a **Laravel package** providing a PHP SDK for the Luma REST API, built o
 LumaSdk (facade) → LumaConnector (HTTP client) → Request classes → Response DTOs
 ```
 
-- **`LumaConnector`** — Saloon `Connector` subclass. Handles base URL, token auth via `TokenAuthenticator`. Configured from `config/luma.php`.
+- **`LumaConnector`** — Saloon `Connector` subclass. Handles base URL, token auth via `HeaderAuthenticator` (custom `x-luma-api-key` header). Configured from `config/luma.php`.
 - **`LumaSdk`** — Public API surface. Accepts a connector, exposes SDK methods (e.g., `ping()`). Has a static `make()` factory for standalone use.
 - **`src/Requests/`** — One class per API endpoint, extending Saloon's `Request`. Defines HTTP method and endpoint path.
 - **`src/Responses/`** — DTOs with `fromArray()` factory methods. Immutable value objects.
