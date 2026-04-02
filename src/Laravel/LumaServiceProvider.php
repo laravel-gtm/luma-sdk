@@ -7,6 +7,7 @@ namespace LaravelGtm\LumaSdk\Laravel;
 use Illuminate\Support\ServiceProvider;
 use LaravelGtm\LumaSdk\LumaConnector;
 use LaravelGtm\LumaSdk\LumaSdk;
+use Saloon\RateLimitPlugin\Stores\LaravelCacheStore;
 
 class LumaServiceProvider extends ServiceProvider
 {
@@ -21,6 +22,7 @@ class LumaServiceProvider extends ServiceProvider
             return new LumaConnector(
                 $config['base_url'] ?? null,
                 $config['token'] ?? null,
+                new LaravelCacheStore($this->app['cache']->store()),
             );
         });
 

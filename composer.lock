@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "42380e592d75bee5c12c7f46a08ece32",
+    "content-hash": "5e63475ac33ce23a4bcc884d6ccbee8f",
     "packages": [
         {
             "name": "brick/math",
@@ -3161,6 +3161,59 @@
                 "source": "https://github.com/saloonphp/laravel-plugin/tree/v4.1.0"
             },
             "time": "2026-03-31T17:13:46+00:00"
+        },
+        {
+            "name": "saloonphp/rate-limit-plugin",
+            "version": "v2.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/saloonphp/rate-limit-plugin.git",
+                "reference": "f3e7700b73cef0322fea3392a57449d96b748ee2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/saloonphp/rate-limit-plugin/zipball/f3e7700b73cef0322fea3392a57449d96b748ee2",
+                "reference": "f3e7700b73cef0322fea3392a57449d96b748ee2",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2",
+                "saloonphp/saloon": "^3.0 || ^4.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.5",
+                "mockery/mockery": "^1.5",
+                "orchestra/testbench": "^9.15 || ^10.7",
+                "pestphp/pest": "^v3.8.4 || ^v4.1.4",
+                "phpstan/phpstan": "^1.9",
+                "predis/predis": "^2.1",
+                "psr/simple-cache": "^3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Saloon\\RateLimitPlugin\\": "src/",
+                    "Saloon\\RateLimitPlugin\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sam Carré",
+                    "email": "29132017+Sammyjo20@users.noreply.github.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Handle rate limits beautifully in your Saloon API integrations or SDKs",
+            "homepage": "https://github.com/sammyjo20",
+            "support": {
+                "issues": "https://github.com/saloonphp/rate-limit-plugin/issues",
+                "source": "https://github.com/saloonphp/rate-limit-plugin/tree/v2.5.1"
+            },
+            "time": "2026-03-25T20:56:11+00:00"
         },
         {
             "name": "saloonphp/saloon",
