@@ -1,12 +1,15 @@
 * text=auto
 
+/.claude            export-ignore
+/.cursor            export-ignore
 /.github            export-ignore
 /http               export-ignore
 /tests              export-ignore
+.env.example        export-ignore
 AGENTS.md           export-ignore
 CHANGELOG.md        export-ignore
 CLAUDE.md           export-ignore
+openapi.json        export-ignore
 phpstan.neon.dist   export-ignore
 phpunit.xml.dist    export-ignore
 pint.json           export-ignore
-openapi.json        export-ignore
