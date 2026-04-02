@@ -116,7 +116,6 @@ class EventResource extends BaseResource
      * Lists ticket types for an event.
      *
      * @param  string|null  $includeHidden  Optional flag expected by the API (`true`/`false`).
-     *
      * @return TicketTypeResponse[]
      *
      * @see ListTicketTypesRequest
