@@ -43,7 +43,7 @@ LUMA_API_TOKEN=your-token
 ```php
 use LaravelGtm\LumaSdk\LumaSdk;
 
-$sdk = app(LumaSdk::class);
+$luma = app(LumaSdk::class);
 ```
 
 ### Standalone
@@ -51,7 +51,7 @@ $sdk = app(LumaSdk::class);
 ```php
 use LaravelGtm\LumaSdk\LumaSdk;
 
-$sdk = LumaSdk::make(
+$luma = LumaSdk::make(
     baseUrl: 'https://public-api.luma.com',
     token: 'your-token',
 );
@@ -60,9 +60,45 @@ $sdk = LumaSdk::make(
 ### Core Methods
 
 ```php
-$user = $sdk->getSelf();           // Get authenticated user
-$entity = $sdk->lookupEntity($slug); // Look up entity by slug
+$user = $luma->getSelf();           // Get authenticated user
+$entity = $luma->lookupEntity($slug); // Look up entity by slug
 ```
+
+## Laravel Boost Skills
+
+This package includes a Laravel Boost skill to improve AI-assisted development with the SDK:
+
+- `luma-sdk-development`
+
+### Install the skill in your Laravel app
+
+Laravel Boost can automatically install third-party package skills from this package.
+
+Install Boost (if you do not already have it), then run the installer:
+
+```bash
+composer require laravel/boost --dev
+php artisan boost:install
+```
+
+When prompted, enable **Skills** for your agent. Boost will discover:
+
+- `resources/boost/skills/luma-sdk-development/SKILL.md`
+
+If Boost is already installed in your app, run:
+
+```bash
+php artisan boost:update
+```
+
+### Use the skill
+
+In Cursor, ask for the `luma-sdk-development` skill when generating or refactoring Luma API code. The skill includes examples for:
+
+- Events, guests, hosts, ticket types, and coupons
+- Calendars, tags, people import, and lookup
+- Memberships, webhooks, organizations, and images
+- Value objects (`LumaDate`, `LumaDuration`, `GooglePlaceId`) and pagination patterns
 
 ## Resources
 
@@ -71,7 +107,7 @@ The SDK organizes endpoints into resource classes accessed via the main `LumaSdk
 ### Events
 
 ```php
-$events = $sdk->events();
+$events = $luma->events();
 
 // Read
 $event = $events->get($eventId);
@@ -112,7 +148,7 @@ $events->cancel($eventId, $token->cancellationToken);
 ### Calendars
 
 ```php
-$calendars = $sdk->calendars();
+$calendars = $luma->calendars();
 
 // Read
 $calendar = $calendars->get();
@@ -152,17 +188,17 @@ $calendars->unapplyEventTag($tag, $eventApiIds);
 ### Memberships
 
 ```php
-$memberships = $sdk->memberships();
+$memberships = $luma->memberships();
 
 $tiers = $memberships->listTiers();
 $memberships->addMember($request);
-$memberships->updateMemberStatus($userId, 'active');
+$memberships->updateMemberStatus($userId, 'approved');
 ```
 
 ### Webhooks
 
 ```php
-$webhooks = $sdk->webhooks();
+$webhooks = $luma->webhooks();
 
 $list = $webhooks->list();
 $webhook = $webhooks->get($id);
@@ -174,7 +210,7 @@ $webhooks->delete($id);
 ### Organizations
 
 ```php
-$org = $sdk->organizations();
+$org = $luma->organizations();
 
 $calendars = $org->listCalendars();
 ```
@@ -182,7 +218,7 @@ $calendars = $org->listCalendars();
 ### Images
 
 ```php
-$images = $sdk->images();
+$images = $luma->images();
 
 $upload = $images->createUploadUrl('event-cover');
 ```
@@ -225,7 +261,7 @@ $place->toArray();        // ['place_id' => '...']
 Paginated endpoints return a `PaginatedResponse` with cursor-based pagination:
 
 ```php
-$page = $sdk->events()->listGuests($request);
+$page = $luma->events()->listGuests($request);
 
 $page->entries;    // array of response DTOs
 $page->hasMore;    // bool

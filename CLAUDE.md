@@ -12,6 +12,20 @@ composer format                            # Fix code style (Pint)
 composer analyse                           # Static analysis (PHPStan level 5)
 ```
 
+## Required Pre-Completion Checks
+
+Before considering any task done (and before opening a PR), always run these commands locally:
+
+```bash
+composer test
+composer analyse
+composer lint
+```
+
+If `composer lint` fails, run `composer format` and then rerun `composer lint`.
+
+Do not skip these checks. CI is expected to pass for tests, PHPStan analysis, and Pint style checks.
+
 ## Architecture
 
 This is a **Laravel package** providing a PHP SDK for the Luma REST API, built on **Saloon 4.0**.
