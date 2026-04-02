@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Adds a member to a membership tier.
+ *
+ * `POST /v1/memberships/members/add`
+ */
 class AddMemberRequest extends Request implements HasBody
 {
     use HasJsonBody;

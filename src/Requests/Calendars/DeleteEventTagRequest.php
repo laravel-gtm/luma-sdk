@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Deletes an event tag by API ID.
+ *
+ * `POST /v1/calendar/event-tags/delete`
+ */
 class DeleteEventTagRequest extends Request implements HasBody
 {
     use HasJsonBody;

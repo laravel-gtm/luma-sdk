@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Creates a webhook.
+ *
+ * `POST /v1/webhooks/create`
+ */
 class CreateWebhookRequest extends Request implements HasBody
 {
     use HasJsonBody;

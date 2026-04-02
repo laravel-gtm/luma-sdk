@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Removes a host from an event.
+ *
+ * `POST /v1/event/hosts/remove`
+ */
 class RemoveHostRequest extends Request implements HasBody
 {
     use HasJsonBody;

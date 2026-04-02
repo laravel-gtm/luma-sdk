@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Updates an event tag by API ID.
+ *
+ * `POST /v1/calendar/event-tags/update`
+ */
 class UpdateEventTagRequest extends Request implements HasBody
 {
     use HasJsonBody;

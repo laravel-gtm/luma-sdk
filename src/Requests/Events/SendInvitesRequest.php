@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Sends invites for an event.
+ *
+ * `POST /v1/event/send-invites`
+ */
 class SendInvitesRequest extends Request implements HasBody
 {
     use HasJsonBody;

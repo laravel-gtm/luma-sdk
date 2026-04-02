@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 
+/**
+ * Retrieves the authenticated user.
+ *
+ * `GET /v1/user/get-self`
+ */
 class GetSelfRequest extends Request
 {
     protected Method $method = Method::GET;

@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 
+/**
+ * Retrieves an event guest by API ID.
+ *
+ * `GET /v1/event/get-guest`
+ */
 class GetGuestRequest extends Request
 {
     protected Method $method = Method::GET;

@@ -10,6 +10,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 
+/**
+ * Lists organization calendars.
+ *
+ * `GET /v1/organizations/calendars/list`
+ */
 class ListOrgCalendarsRequest extends Request
 {
     protected Method $method = Method::GET;

@@ -12,6 +12,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 
+/**
+ * Lists guests for an event.
+ *
+ * `GET /v1/event/get-guests`
+ */
 class ListGuestsRequest extends Request
 {
     protected Method $method = Method::GET;

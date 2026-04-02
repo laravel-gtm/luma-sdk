@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 
+/**
+ * Retrieves a ticket type by API ID.
+ *
+ * `GET /v1/event/ticket-types/get`
+ */
 class GetTicketTypeRequest extends Request
 {
     protected Method $method = Method::GET;

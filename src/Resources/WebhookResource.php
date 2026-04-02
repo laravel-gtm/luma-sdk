@@ -16,7 +16,11 @@ use Saloon\Http\BaseResource;
 class WebhookResource extends BaseResource
 {
     /**
+     * Lists webhooks with pagination.
+     *
      * @return PaginatedResponse<WebhookResponse>
+     *
+     * @see ListWebhooksRequest
      */
     public function list(ListWebhooksRequest $request = new ListWebhooksRequest): PaginatedResponse
     {
@@ -24,6 +28,11 @@ class WebhookResource extends BaseResource
         return $this->connector->send($request)->dtoOrFail();
     }
 
+    /**
+     * Gets a webhook by API id.
+     *
+     * @see GetWebhookRequest
+     */
     public function get(string $id): WebhookResponse
     {
         /** @var WebhookResponse */
@@ -31,7 +40,11 @@ class WebhookResource extends BaseResource
     }
 
     /**
+     * Creates a webhook.
+     *
      * @param  string[]  $eventTypes
+     *
+     * @see CreateWebhookRequest
      */
     public function create(string $url, array $eventTypes): WebhookResponse
     {
@@ -41,6 +54,11 @@ class WebhookResource extends BaseResource
         return WebhookResponse::fromArray($data['webhook']);
     }
 
+    /**
+     * Updates an existing webhook.
+     *
+     * @see UpdateWebhookRequest
+     */
     public function update(UpdateWebhookRequest $request): WebhookResponse
     {
         /** @var array{webhook: array<string, mixed>} $data */
@@ -49,6 +67,11 @@ class WebhookResource extends BaseResource
         return WebhookResponse::fromArray($data['webhook']);
     }
 
+    /**
+     * Deletes a webhook by API id.
+     *
+     * @see DeleteWebhookRequest
+     */
     public function delete(string $id): void
     {
         $this->connector->send(new DeleteWebhookRequest($id));

@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Applies a person tag to people.
+ *
+ * `POST /v1/calendar/person-tags/apply`
+ */
 class ApplyPersonTagRequest extends Request implements HasBody
 {
     use HasJsonBody;

@@ -41,6 +41,11 @@ use Saloon\Http\BaseResource;
 
 class CalendarResource extends BaseResource
 {
+    /**
+     * Gets the authenticated calendar.
+     *
+     * @see GetCalendarRequest
+     */
     public function get(): CalendarResponse
     {
         /** @var CalendarResponse */
@@ -48,7 +53,11 @@ class CalendarResource extends BaseResource
     }
 
     /**
+     * Lists calendar events with pagination.
+     *
      * @return PaginatedResponse<CalendarEventEntry>
+     *
+     * @see ListCalendarEventsRequest
      */
     public function listEvents(ListCalendarEventsRequest $request = new ListCalendarEventsRequest): PaginatedResponse
     {
@@ -57,7 +66,11 @@ class CalendarResource extends BaseResource
     }
 
     /**
+     * Lists person tags available on the calendar.
+     *
      * @return PaginatedResponse<TagResponse>
+     *
+     * @see ListPersonTagsRequest
      */
     public function listPersonTags(): PaginatedResponse
     {
@@ -66,7 +79,11 @@ class CalendarResource extends BaseResource
     }
 
     /**
+     * Lists event tags available on the calendar.
+     *
      * @return TagResponse[]
+     *
+     * @see ListEventTagsRequest
      */
     public function listEventTags(): array
     {
@@ -75,7 +92,11 @@ class CalendarResource extends BaseResource
     }
 
     /**
+     * Lists calendar admins.
+     *
      * @return UserResponse[]
+     *
+     * @see ListCalendarAdminsRequest
      */
     public function listAdmins(): array
     {
@@ -83,6 +104,11 @@ class CalendarResource extends BaseResource
         return $this->connector->send(new ListCalendarAdminsRequest)->dtoOrFail();
     }
 
+    /**
+     * Resolves a calendar event from a URL or slug context.
+     *
+     * @see LookupEventRequest
+     */
     public function lookupEvent(LookupEventRequest $request): LookupEventResponse
     {
         /** @var LookupEventResponse */
@@ -90,7 +116,11 @@ class CalendarResource extends BaseResource
     }
 
     /**
+     * Lists people with pagination.
+     *
      * @return PaginatedResponse<PersonResponse>
+     *
+     * @see ListPeopleRequest
      */
     public function listPeople(ListPeopleRequest $request = new ListPeopleRequest): PaginatedResponse
     {
@@ -99,7 +129,11 @@ class CalendarResource extends BaseResource
     }
 
     /**
+     * Lists calendar coupons with pagination.
+     *
      * @return PaginatedResponse<CouponResponse>
+     *
+     * @see ListCalendarCouponsRequest
      */
     public function listCoupons(ListCalendarCouponsRequest $request = new ListCalendarCouponsRequest): PaginatedResponse
     {
@@ -107,6 +141,11 @@ class CalendarResource extends BaseResource
         return $this->connector->send($request)->dtoOrFail();
     }
 
+    /**
+     * Adds an event to the calendar from an external source or existing Luma event.
+     *
+     * @see AddCalendarEventRequest
+     */
     public function addEvent(AddCalendarEventRequest $request): AddEventResponse
     {
         /** @var array<string, mixed> $data */
@@ -115,6 +154,11 @@ class CalendarResource extends BaseResource
         return AddEventResponse::fromArray($data);
     }
 
+    /**
+     * Creates a calendar coupon and returns its API id.
+     *
+     * @see CreateCalendarCouponRequest
+     */
     public function createCoupon(CreateCalendarCouponRequest $request): string
     {
         /** @var array{coupon: array{api_id: string}} $data */
@@ -123,16 +167,31 @@ class CalendarResource extends BaseResource
         return $data['coupon']['api_id'];
     }
 
+    /**
+     * Updates a calendar coupon.
+     *
+     * @see UpdateCalendarCouponRequest
+     */
     public function updateCoupon(UpdateCalendarCouponRequest $request): void
     {
         $this->connector->send($request);
     }
 
+    /**
+     * Imports people into the calendar.
+     *
+     * @see ImportPeopleRequest
+     */
     public function importPeople(ImportPeopleRequest $request): void
     {
         $this->connector->send($request);
     }
 
+    /**
+     * Creates a person tag and returns its API id.
+     *
+     * @see CreatePersonTagRequest
+     */
     public function createPersonTag(string $name, ?string $color = null): string
     {
         /** @var array{tag_api_id: string} $data */
@@ -141,16 +200,31 @@ class CalendarResource extends BaseResource
         return $data['tag_api_id'];
     }
 
+    /**
+     * Updates a person tag.
+     *
+     * @see UpdatePersonTagRequest
+     */
     public function updatePersonTag(string $tagApiId, ?string $name = null, ?string $color = null): void
     {
         $this->connector->send(new UpdatePersonTagRequest($tagApiId, $name, $color));
     }
 
+    /**
+     * Deletes a person tag.
+     *
+     * @see DeletePersonTagRequest
+     */
     public function deletePersonTag(string $tagApiId): void
     {
         $this->connector->send(new DeletePersonTagRequest($tagApiId));
     }
 
+    /**
+     * Applies a person tag.
+     *
+     * @see ApplyPersonTagRequest
+     */
     public function applyPersonTag(ApplyPersonTagRequest $request): TagActionResponse
     {
         /** @var array<string, mixed> $data */
@@ -159,6 +233,11 @@ class CalendarResource extends BaseResource
         return TagActionResponse::fromArray($data);
     }
 
+    /**
+     * Removes a person tag.
+     *
+     * @see UnapplyPersonTagRequest
+     */
     public function unapplyPersonTag(UnapplyPersonTagRequest $request): TagRemoveResponse
     {
         /** @var array<string, mixed> $data */
@@ -167,6 +246,11 @@ class CalendarResource extends BaseResource
         return TagRemoveResponse::fromArray($data);
     }
 
+    /**
+     * Creates an event tag and returns its API id.
+     *
+     * @see CreateEventTagRequest
+     */
     public function createEventTag(string $name, ?string $color = null): string
     {
         /** @var array{tag_api_id: string} $data */
@@ -175,18 +259,32 @@ class CalendarResource extends BaseResource
         return $data['tag_api_id'];
     }
 
+    /**
+     * Updates an event tag.
+     *
+     * @see UpdateEventTagRequest
+     */
     public function updateEventTag(string $tagApiId, ?string $name = null, ?string $color = null): void
     {
         $this->connector->send(new UpdateEventTagRequest($tagApiId, $name, $color));
     }
 
+    /**
+     * Deletes an event tag.
+     *
+     * @see DeleteEventTagRequest
+     */
     public function deleteEventTag(string $tagApiId): void
     {
         $this->connector->send(new DeleteEventTagRequest($tagApiId));
     }
 
     /**
+     * Applies an event tag to multiple events.
+     *
      * @param  string[]  $eventApiIds
+     *
+     * @see ApplyEventTagRequest
      */
     public function applyEventTag(string $tag, array $eventApiIds): TagActionResponse
     {
@@ -197,7 +295,11 @@ class CalendarResource extends BaseResource
     }
 
     /**
+     * Removes an event tag from multiple events.
+     *
      * @param  string[]  $eventApiIds
+     *
+     * @see UnapplyEventTagRequest
      */
     public function unapplyEventTag(string $tag, array $eventApiIds): TagRemoveResponse
     {

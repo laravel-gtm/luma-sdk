@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Requests an event cancellation token.
+ *
+ * `POST /v1/event/cancel/request`
+ */
 class RequestCancellationRequest extends Request implements HasBody
 {
     use HasJsonBody;

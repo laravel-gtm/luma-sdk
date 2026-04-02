@@ -10,6 +10,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 
+/**
+ * Lists membership tiers.
+ *
+ * `GET /v1/memberships/tiers/list`
+ */
 class ListMembershipTiersRequest extends Request
 {
     protected Method $method = Method::GET;

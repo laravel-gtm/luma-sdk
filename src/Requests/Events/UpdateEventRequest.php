@@ -12,6 +12,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Updates an event.
+ *
+ * `POST /v1/event/update`
+ */
 class UpdateEventRequest extends Request implements HasBody
 {
     use HasJsonBody;

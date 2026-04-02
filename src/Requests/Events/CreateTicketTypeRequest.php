@@ -10,6 +10,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Creates an event ticket type.
+ *
+ * `POST /v1/event/ticket-types/create`
+ */
 class CreateTicketTypeRequest extends Request implements HasBody
 {
     use HasJsonBody;

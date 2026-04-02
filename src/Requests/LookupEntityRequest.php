@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 
+/**
+ * Looks up an entity by slug.
+ *
+ * `GET /v1/entity/lookup`
+ */
 class LookupEntityRequest extends Request
 {
     protected Method $method = Method::GET;

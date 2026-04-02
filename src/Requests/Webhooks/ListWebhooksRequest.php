@@ -10,6 +10,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 
+/**
+ * Lists webhooks.
+ *
+ * `GET /v1/webhooks/list`
+ */
 class ListWebhooksRequest extends Request
 {
     protected Method $method = Method::GET;

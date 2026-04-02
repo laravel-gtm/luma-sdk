@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Deletes a webhook by API ID.
+ *
+ * `POST /v1/webhooks/delete`
+ */
 class DeleteWebhookRequest extends Request implements HasBody
 {
     use HasJsonBody;

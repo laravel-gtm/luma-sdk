@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Applies an event tag to events.
+ *
+ * `POST /v1/calendar/event-tags/apply`
+ */
 class ApplyEventTagRequest extends Request implements HasBody
 {
     use HasJsonBody;

@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Unapplies an event tag from events.
+ *
+ * `POST /v1/calendar/event-tags/unapply`
+ */
 class UnapplyEventTagRequest extends Request implements HasBody
 {
     use HasJsonBody;

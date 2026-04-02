@@ -10,6 +10,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Updates a webhook by API ID.
+ *
+ * `POST /v1/webhooks/update`
+ */
 class UpdateWebhookRequest extends Request implements HasBody
 {
     use HasJsonBody;

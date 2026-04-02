@@ -10,6 +10,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 
+/**
+ * Lists calendar person tags.
+ *
+ * `GET /v1/calendar/list-person-tags`
+ */
 class ListPersonTagsRequest extends Request
 {
     protected Method $method = Method::GET;

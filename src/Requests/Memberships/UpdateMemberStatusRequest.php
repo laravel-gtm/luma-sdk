@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Updates a membership member status.
+ *
+ * `POST /v1/memberships/members/update-status`
+ */
 class UpdateMemberStatusRequest extends Request implements HasBody
 {
     use HasJsonBody;

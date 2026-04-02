@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Unapplies a person tag from people.
+ *
+ * `POST /v1/calendar/person-tags/unapply`
+ */
 class UnapplyPersonTagRequest extends Request implements HasBody
 {
     use HasJsonBody;

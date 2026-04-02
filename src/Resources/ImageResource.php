@@ -10,6 +10,14 @@ use Saloon\Http\BaseResource;
 
 class ImageResource extends BaseResource
 {
+    /**
+     * Creates a pre-signed upload URL for image assets.
+     *
+     * @param  string  $purpose  Upload purpose accepted by the API.
+     * @param  string|null  $contentType  MIME type hint, e.g. `image/png`.
+     *
+     * @see CreateUploadUrlRequest
+     */
     public function createUploadUrl(string $purpose, ?string $contentType = null): UploadUrlResponse
     {
         /** @var array<string, mixed> $data */

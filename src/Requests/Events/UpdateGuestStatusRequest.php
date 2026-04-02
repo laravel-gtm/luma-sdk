@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Updates a guest status for an event.
+ *
+ * `POST /v1/event/update-guest-status`
+ */
 class UpdateGuestStatusRequest extends Request implements HasBody
 {
     use HasJsonBody;

@@ -12,6 +12,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 
+/**
+ * Lists calendar people.
+ *
+ * `GET /v1/calendar/list-people`
+ */
 class ListPeopleRequest extends Request
 {
     protected Method $method = Method::GET;

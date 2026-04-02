@@ -12,7 +12,11 @@ use Saloon\Http\BaseResource;
 class OrganizationResource extends BaseResource
 {
     /**
+     * Lists calendars within the authenticated organization.
+     *
      * @return PaginatedResponse<CalendarResponse>
+     *
+     * @see ListOrgCalendarsRequest
      */
     public function listCalendars(ListOrgCalendarsRequest $request = new ListOrgCalendarsRequest): PaginatedResponse
     {

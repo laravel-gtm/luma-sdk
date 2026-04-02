@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 
+/**
+ * Lists ticket types for an event.
+ *
+ * `GET /v1/event/ticket-types/list`
+ */
 class ListTicketTypesRequest extends Request
 {
     protected Method $method = Method::GET;

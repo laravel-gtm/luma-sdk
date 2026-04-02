@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Cancels an event by ID.
+ *
+ * `POST /v1/event/cancel`
+ */
 class CancelEventRequest extends Request implements HasBody
 {
     use HasJsonBody;

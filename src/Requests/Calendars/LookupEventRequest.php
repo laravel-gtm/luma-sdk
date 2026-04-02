@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 
+/**
+ * Looks up a calendar event.
+ *
+ * `GET /v1/calendar/lookup-event`
+ */
 class LookupEventRequest extends Request
 {
     protected Method $method = Method::GET;

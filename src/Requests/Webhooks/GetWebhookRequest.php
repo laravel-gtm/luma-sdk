@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 
+/**
+ * Retrieves a webhook by API ID.
+ *
+ * `GET /v1/webhooks/get`
+ */
 class GetWebhookRequest extends Request
 {
     protected Method $method = Method::GET;

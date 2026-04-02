@@ -10,6 +10,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 
+/**
+ * Lists coupons for an event.
+ *
+ * `GET /v1/event/coupons`
+ */
 class ListEventCouponsRequest extends Request
 {
     protected Method $method = Method::GET;

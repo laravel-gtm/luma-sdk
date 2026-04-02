@@ -15,7 +15,11 @@ use Saloon\Http\BaseResource;
 class MembershipResource extends BaseResource
 {
     /**
+     * Lists membership tiers with pagination.
+     *
      * @return PaginatedResponse<MembershipTierResponse>
+     *
+     * @see ListMembershipTiersRequest
      */
     public function listTiers(ListMembershipTiersRequest $request = new ListMembershipTiersRequest): PaginatedResponse
     {
@@ -23,6 +27,11 @@ class MembershipResource extends BaseResource
         return $this->connector->send($request)->dtoOrFail();
     }
 
+    /**
+     * Adds a member to the calendar.
+     *
+     * @see AddMemberRequest
+     */
     public function addMember(AddMemberRequest $request): AddMemberResponse
     {
         /** @var array<string, mixed> $data */
@@ -31,6 +40,11 @@ class MembershipResource extends BaseResource
         return AddMemberResponse::fromArray($data);
     }
 
+    /**
+     * Updates a member's status.
+     *
+     * @see UpdateMemberStatusRequest
+     */
     public function updateMemberStatus(string $userId, string $status): void
     {
         $this->connector->send(new UpdateMemberStatusRequest($userId, $status));

@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Imports people into a calendar.
+ *
+ * `POST /v1/calendar/import-people`
+ */
 class ImportPeopleRequest extends Request implements HasBody
 {
     use HasJsonBody;

@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Creates an image upload URL.
+ *
+ * `POST /v1/images/create-upload-url`
+ */
 class CreateUploadUrlRequest extends Request implements HasBody
 {
     use HasJsonBody;

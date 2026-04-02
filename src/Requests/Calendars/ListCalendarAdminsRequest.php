@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 
+/**
+ * Lists calendar admins.
+ *
+ * `GET /v1/calendar/admins/list`
+ */
 class ListCalendarAdminsRequest extends Request
 {
     protected Method $method = Method::GET;

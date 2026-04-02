@@ -9,6 +9,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Deletes a ticket type by API ID.
+ *
+ * `POST /v1/event/ticket-types/delete`
+ */
 class DeleteTicketTypeRequest extends Request implements HasBody
 {
     use HasJsonBody;

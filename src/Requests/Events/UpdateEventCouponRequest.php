@@ -10,6 +10,11 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+/**
+ * Updates an event coupon.
+ *
+ * `POST /v1/event/update-coupon`
+ */
 class UpdateEventCouponRequest extends Request implements HasBody
 {
     use HasJsonBody;
