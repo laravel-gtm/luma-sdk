@@ -8,6 +8,7 @@ use LaravelGtm\LumaSdk\Requests\GetSelfRequest;
 use LaravelGtm\LumaSdk\Requests\LookupEntityRequest;
 use LaravelGtm\LumaSdk\Resources\CalendarResource;
 use LaravelGtm\LumaSdk\Resources\EventResource;
+use LaravelGtm\LumaSdk\Resources\ImageResource;
 use LaravelGtm\LumaSdk\Resources\MembershipResource;
 use LaravelGtm\LumaSdk\Resources\OrganizationResource;
 use LaravelGtm\LumaSdk\Resources\WebhookResource;
@@ -60,5 +61,10 @@ class LumaSdk
     public function organizations(): OrganizationResource
     {
         return new OrganizationResource($this->connector);
+    }
+
+    public function images(): ImageResource
+    {
+        return new ImageResource($this->connector);
     }
 }

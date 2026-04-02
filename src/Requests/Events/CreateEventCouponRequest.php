@@ -1,0 +1,46 @@
+<?php
+
+declare(strict_types=1);
+
+namespace LaravelGtm\LumaSdk\Requests\Events;
+
+use Saloon\Contracts\Body\HasBody;
+use Saloon\Enums\Method;
+use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
+
+class CreateEventCouponRequest extends Request implements HasBody
+{
+    use HasJsonBody;
+
+    protected Method $method = Method::POST;
+
+    /**
+     * @param  array{discount_type: string, percent_off?: float}|array{discount_type: string, cents_off: int, currency: string}  $discount
+     */
+    public function __construct(
+        private readonly string $eventApiId,
+        private readonly string $code,
+        private readonly array $discount,
+        private readonly ?int $remainingCount = null,
+        private readonly ?string $validStartAt = null,
+        private readonly ?string $validEndAt = null,
+    ) {}
+
+    public function resolveEndpoint(): string
+    {
+        return '/v1/event/create-coupon';
+    }
+
+    protected function defaultBody(): array
+    {
+        return array_filter([
+            'event_api_id' => $this->eventApiId,
+            'code' => $this->code,
+            'discount' => $this->discount,
+            'remaining_count' => $this->remainingCount,
+            'valid_start_at' => $this->validStartAt,
+            'valid_end_at' => $this->validEndAt,
+        ], fn (mixed $value): bool => $value !== null);
+    }
+}
