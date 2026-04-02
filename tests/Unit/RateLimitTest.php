@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use LaravelGtm\LumaSdk\LumaConnector;
-use LaravelGtm\LumaSdk\Requests\PingRequest;
+use LaravelGtm\LumaSdk\Requests\GetSelfRequest;
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\RateLimitPlugin\Exceptions\RateLimitReachedException;
@@ -37,8 +37,8 @@ it('throws rate limit exception on 429 response', function (): void {
     $connector = new LumaConnector;
 
     MockClient::global([
-        PingRequest::class => MockResponse::make(body: 'Too Many Requests', status: 429),
+        GetSelfRequest::class => MockResponse::make(body: 'Too Many Requests', status: 429),
     ]);
 
-    $connector->send(new PingRequest);
+    $connector->send(new GetSelfRequest);
 })->throws(RateLimitReachedException::class);

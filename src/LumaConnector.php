@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace LaravelGtm\LumaSdk;
 
-use Saloon\Http\Auth\TokenAuthenticator;
+use Saloon\Http\Auth\HeaderAuthenticator;
 use Saloon\Http\Connector;
 use Saloon\Http\Response;
 use Saloon\RateLimitPlugin\Contracts\RateLimitStore;
@@ -12,11 +12,19 @@ use Saloon\RateLimitPlugin\Limit;
 use Saloon\RateLimitPlugin\Stores\MemoryStore;
 use Saloon\RateLimitPlugin\Traits\HasRateLimits;
 use Saloon\Traits\Plugins\AcceptsJson;
+use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
+use Saloon\Traits\Plugins\HasTimeout;
 
 class LumaConnector extends Connector
 {
     use AcceptsJson;
+    use AlwaysThrowOnErrors;
     use HasRateLimits;
+    use HasTimeout;
+
+    protected int $connectTimeout = 10;
+
+    protected int $requestTimeout = 30;
 
     private readonly ?RateLimitStore $customRateLimitStore;
 
@@ -30,16 +38,16 @@ class LumaConnector extends Connector
 
     public function resolveBaseUrl(): string
     {
-        return rtrim($this->baseUrl ?? 'https://api.luma.ai', '/');
+        return rtrim($this->baseUrl ?? 'https://public-api.luma.com', '/');
     }
 
-    protected function defaultAuth(): ?TokenAuthenticator
+    protected function defaultAuth(): ?HeaderAuthenticator
     {
         if (empty($this->token)) {
             return null;
         }
 
-        return new TokenAuthenticator($this->token);
+        return new HeaderAuthenticator($this->token, 'x-luma-api-key');
     }
 
     protected function resolveLimits(): array

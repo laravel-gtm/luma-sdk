@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace LaravelGtm\LumaSdk;
 
-use LaravelGtm\LumaSdk\Requests\PingRequest;
-use LaravelGtm\LumaSdk\Responses\PingResponse;
+use LaravelGtm\LumaSdk\Requests\GetSelfRequest;
+use LaravelGtm\LumaSdk\Responses\UserResponse;
 
 class LumaSdk
 {
@@ -16,12 +16,11 @@ class LumaSdk
         return new self(new LumaConnector($baseUrl, $token));
     }
 
-    public function ping(): PingResponse
+    public function getSelf(): UserResponse
     {
-        $response = $this->connector->send(new PingRequest);
-        /** @var array<string, mixed> $payload */
-        $payload = $response->json();
+        $response = $this->connector->send(new GetSelfRequest);
 
-        return PingResponse::fromArray($payload);
+        /** @var UserResponse */
+        return $response->dtoOrFail();
     }
 }
