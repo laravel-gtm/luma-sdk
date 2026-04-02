@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-04-02
+
+### Fixed
+- Fix Style workflow failing with 403 by adding `contents: write` permission to `pint.yml`
+- `ordered_imports` lint violation in `EventResourceTest.php`
+
 ## [0.2.0] - 2026-04-02
 
 ### Changed
@@ -51,7 +57,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Orchestra Testbench test infrastructure
 - Pint auto-fix CI workflow
 
-[Unreleased]: https://github.com/laravel-gtm/luma-sdk/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/laravel-gtm/luma-sdk/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/laravel-gtm/luma-sdk/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/laravel-gtm/luma-sdk/compare/v0.1.2...v0.2.0
 [0.1.2]: https://github.com/laravel-gtm/luma-sdk/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/laravel-gtm/luma-sdk/compare/v0.1.0...v0.1.1
