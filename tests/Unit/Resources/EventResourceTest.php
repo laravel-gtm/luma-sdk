@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use LaravelGtm\LumaSdk\LumaConnector;
 use LaravelGtm\LumaSdk\LumaSdk;
-use LaravelGtm\LumaSdk\ValueObjects\LumaDate;
 use LaravelGtm\LumaSdk\Requests\Events\CancelEventRequest;
 use LaravelGtm\LumaSdk\Requests\Events\CreateEventCouponRequest;
 use LaravelGtm\LumaSdk\Requests\Events\CreateEventRequest;
@@ -18,6 +17,7 @@ use LaravelGtm\LumaSdk\Responses\EventResponse;
 use LaravelGtm\LumaSdk\Responses\GetEventResponse;
 use LaravelGtm\LumaSdk\Responses\HostResponse;
 use LaravelGtm\LumaSdk\Responses\TicketTypeResponse;
+use LaravelGtm\LumaSdk\ValueObjects\LumaDate;
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\RateLimitPlugin\Stores\MemoryStore;
