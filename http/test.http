@@ -1,0 +1,2 @@
+GET https://public-api.luma.com/v1/user/get-self
+Authorization: Bearer {{LUMA_API_TOKEN}}
