@@ -35,6 +35,20 @@ LumaSdk (facade) → LumaConnector (HTTP client) → Request classes → Respons
 3. Add a public method on `LumaSdk` that sends the request and returns the DTO
 4. Test with Saloon's `MockClient` and `MockResponse`
 
+### API Format Value Objects
+
+The Luma API uses specific formats for dates, durations, and locations. These are represented as value objects in `src/ValueObjects/`:
+
+- **`LumaDate`** — ISO 8601 dates (`2022-10-04T05:20:00.000Z`). All times are UTC. Use `LumaDate::fromString()` when parsing API responses and `->toString()` when building request payloads. Use `->toTimezone()` for display conversion.
+- **`LumaDuration`** — ISO 8601 durations (`P1DT12H30M`). Use `LumaDuration::fromString()` to parse and `->toString()` to serialize. `->toSeconds()` gives a numeric representation.
+- **`GooglePlaceId`** — Google Maps Place IDs for event locations. Use `GooglePlaceId::fromArray()` when the API returns `{"place_id": "..."}` and `->toArray()` when sending locations.
+
+**Rules for Response DTOs:**
+- Date/time fields from the API → `LumaDate` (never raw strings or `Carbon`)
+- Duration fields from the API → `LumaDuration` (never raw strings)
+- Location fields with `place_id` → `GooglePlaceId` (never raw strings)
+- DTOs expose the value objects directly; consumers handle timezone conversion
+
 ## Conventions
 
 - PHP 8.4+, `declare(strict_types=1)` in all files
