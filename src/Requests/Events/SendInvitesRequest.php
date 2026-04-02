@@ -29,6 +29,9 @@ class SendInvitesRequest extends Request implements HasBody
         return '/v1/event/send-invites';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function defaultBody(): array
     {
         return array_filter([

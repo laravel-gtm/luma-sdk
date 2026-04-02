@@ -28,6 +28,9 @@ class UpdateHostRequest extends Request implements HasBody
         return '/v1/event/hosts/update';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function defaultBody(): array
     {
         return array_filter([

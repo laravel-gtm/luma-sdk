@@ -51,6 +51,9 @@ class CreateEventRequest extends Request implements HasBody
         return '/v1/event/create';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function defaultBody(): array
     {
         return array_filter([

@@ -31,7 +31,7 @@ it('creates an event response from array', function (): void {
     expect($response->startAt)->toBeInstanceOf(LumaDate::class);
     expect($response->endAt)->toBeInstanceOf(LumaDate::class);
     expect($response->durationInterval)->toBeInstanceOf(LumaDuration::class);
-    expect($response->durationInterval->toSeconds())->toBe(7200);
+    expect($response->durationInterval?->toSeconds())->toBe(7200);
     expect($response->visibility)->toBe(Visibility::Public);
     expect($response->url)->toBe('https://lu.ma/test-event');
 });

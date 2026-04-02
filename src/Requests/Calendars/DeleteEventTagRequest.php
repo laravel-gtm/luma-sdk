@@ -24,6 +24,9 @@ class DeleteEventTagRequest extends Request implements HasBody
         return '/v1/calendar/event-tags/delete';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function defaultBody(): array
     {
         return [

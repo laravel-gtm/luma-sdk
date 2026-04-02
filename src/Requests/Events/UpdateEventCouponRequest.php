@@ -29,6 +29,9 @@ class UpdateEventCouponRequest extends Request implements HasBody
         return '/v1/event/update-coupon';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function defaultBody(): array
     {
         return array_filter([

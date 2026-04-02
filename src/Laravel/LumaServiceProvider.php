@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace LaravelGtm\LumaSdk\Laravel;
 
+use Illuminate\Contracts\Cache\Factory as CacheFactory;
+use Illuminate\Contracts\Config\Repository as ConfigRepository;
 use Illuminate\Support\ServiceProvider;
 use LaravelGtm\LumaSdk\LumaConnector;
 use LaravelGtm\LumaSdk\LumaSdk;
@@ -16,13 +18,15 @@ class LumaServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../../config/luma.php', 'luma');
 
         $this->app->singleton(LumaConnector::class, function (): LumaConnector {
+            $configRepository = $this->app->make(ConfigRepository::class);
+            $cacheFactory = $this->app->make(CacheFactory::class);
             /** @var array<string, mixed> $config */
-            $config = (array) $this->app['config']->get('luma', []);
+            $config = (array) $configRepository->get('luma', []);
 
             return new LumaConnector(
                 $config['base_url'] ?? null,
                 $config['token'] ?? null,
-                new LaravelCacheStore($this->app['cache']->store()),
+                new LaravelCacheStore($cacheFactory->store()),
             );
         });
 

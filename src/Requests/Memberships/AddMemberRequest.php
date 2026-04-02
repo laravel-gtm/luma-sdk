@@ -30,6 +30,9 @@ class AddMemberRequest extends Request implements HasBody
         return '/v1/memberships/members/add';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function defaultBody(): array
     {
         return array_filter([

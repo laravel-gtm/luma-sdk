@@ -28,6 +28,9 @@ class ApplyEventTagRequest extends Request implements HasBody
         return '/v1/calendar/event-tags/apply';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function defaultBody(): array
     {
         return [

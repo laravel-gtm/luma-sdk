@@ -26,6 +26,9 @@ class UpdatePersonTagRequest extends Request implements HasBody
         return '/v1/calendar/update-person-tag';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function defaultBody(): array
     {
         return array_filter([

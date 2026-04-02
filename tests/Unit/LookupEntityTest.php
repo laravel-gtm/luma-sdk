@@ -40,7 +40,7 @@ it('looks up an entity by slug', function (): void {
     expect($entity)->toBeInstanceOf(EntityResponse::class);
     expect($entity->type)->toBe(EntityType::Event);
     expect($entity->event)->toBeInstanceOf(EventResponse::class);
-    expect($entity->event->name)->toBe('Found Event');
+    expect($entity->event?->name)->toBe('Found Event');
     expect($entity->calendar)->toBeNull();
 
     $mockClient->assertSent(LookupEntityRequest::class);

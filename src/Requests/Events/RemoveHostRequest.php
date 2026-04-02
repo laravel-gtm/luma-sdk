@@ -25,6 +25,9 @@ class RemoveHostRequest extends Request implements HasBody
         return '/v1/event/hosts/remove';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function defaultBody(): array
     {
         return [

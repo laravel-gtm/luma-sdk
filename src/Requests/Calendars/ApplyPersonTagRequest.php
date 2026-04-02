@@ -30,6 +30,9 @@ class ApplyPersonTagRequest extends Request implements HasBody
         return '/v1/calendar/person-tags/apply';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function defaultBody(): array
     {
         return array_filter([

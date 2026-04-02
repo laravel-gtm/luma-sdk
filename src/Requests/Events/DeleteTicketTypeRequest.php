@@ -24,6 +24,9 @@ class DeleteTicketTypeRequest extends Request implements HasBody
         return '/v1/event/ticket-types/delete';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function defaultBody(): array
     {
         return [

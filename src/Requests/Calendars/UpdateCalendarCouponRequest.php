@@ -28,6 +28,9 @@ class UpdateCalendarCouponRequest extends Request implements HasBody
         return '/v1/calendar/coupons/update';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function defaultBody(): array
     {
         return array_filter([

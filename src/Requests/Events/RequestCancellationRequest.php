@@ -24,6 +24,9 @@ class RequestCancellationRequest extends Request implements HasBody
         return '/v1/event/cancel/request';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function defaultBody(): array
     {
         return [

@@ -25,6 +25,9 @@ class UpdateMemberStatusRequest extends Request implements HasBody
         return '/v1/memberships/members/update-status';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function defaultBody(): array
     {
         return [

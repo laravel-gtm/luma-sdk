@@ -28,6 +28,9 @@ class CreateWebhookRequest extends Request implements HasBody
         return '/v1/webhooks/create';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function defaultBody(): array
     {
         return [

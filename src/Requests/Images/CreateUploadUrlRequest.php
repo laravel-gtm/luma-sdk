@@ -25,6 +25,9 @@ class CreateUploadUrlRequest extends Request implements HasBody
         return '/v1/images/create-upload-url';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function defaultBody(): array
     {
         return array_filter([

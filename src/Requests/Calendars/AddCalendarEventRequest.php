@@ -73,6 +73,9 @@ class AddCalendarEventRequest extends Request implements HasBody
         return '/v1/calendar/add-event';
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function defaultBody(): array
     {
         return $this->data;
