@@ -35,6 +35,40 @@ LumaSdk (facade) → LumaConnector (HTTP client) → Request classes → Respons
 3. Add a public method on `LumaSdk` that sends the request and returns the DTO
 4. Test with Saloon's `MockClient` and `MockResponse`
 
+### API Route Conventions
+
+Luma uses per-route versioning and currently has a mix of legacy and newer route patterns.
+
+- Treat version as endpoint-specific (`/v1/...` and `/v2/...` can coexist in the SDK)
+- Do not assume a global API version
+- Do not "normalize" working legacy paths to a newer REST pattern unless explicitly requested
+- Prefer exact API-documented paths over inferred naming conventions
+
+#### Expected Pattern (for new and updated endpoints)
+
+`/v{version}/{resource}/{action}`
+
+Examples:
+- `GET /v1/event/ticket-types/list`
+- `GET /v1/event/ticket-types/get`
+- `POST /v1/event/ticket-types/create`
+- `POST /v1/event/ticket-types/update`
+- `POST /v1/event/ticket-types/delete`
+
+#### Method Rules
+
+- Read actions (`list`, `get`) use `GET`
+- Write actions (`create`, `update`, `delete`) use `POST`
+- If docs and convention conflict, follow docs for that endpoint
+
+#### SDK Request Implementation Rules
+
+When adding or changing a request class:
+1. Set the exact endpoint string (including version) in `resolveEndpoint()`
+2. Set HTTP method explicitly on the request class
+3. Preserve exact resource/action formatting from docs (including hyphenation/pluralization)
+4. Add or update tests that verify method, endpoint, and query/body mapping
+
 ### API Format Value Objects
 
 The Luma API uses specific formats for dates, durations, and locations. These are represented as value objects in `src/ValueObjects/`:
