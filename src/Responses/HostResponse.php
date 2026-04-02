@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace LaravelGtm\LumaSdk\Responses;
 
-class HostResponse
+readonly class HostResponse
 {
     public function __construct(
-        public readonly string $id,
-        public readonly ?string $email,
-        public readonly ?string $name,
-        public readonly ?string $firstName,
-        public readonly ?string $lastName,
-        public readonly ?string $avatarUrl,
-        public readonly ?string $apiId,
+        public string $id,
+        public ?string $email,
+        public ?string $name,
+        public ?string $firstName,
+        public ?string $lastName,
+        public ?string $avatarUrl,
+        public ?string $apiId,
     ) {}
 
     /**

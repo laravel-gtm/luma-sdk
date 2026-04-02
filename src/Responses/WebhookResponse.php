@@ -7,18 +7,18 @@ namespace LaravelGtm\LumaSdk\Responses;
 use LaravelGtm\LumaSdk\Enums\WebhookStatus;
 use LaravelGtm\LumaSdk\ValueObjects\LumaDate;
 
-class WebhookResponse
+readonly class WebhookResponse
 {
     /**
      * @param  string[]  $eventTypes
      */
     public function __construct(
-        public readonly string $id,
-        public readonly string $url,
-        public readonly array $eventTypes,
-        public readonly WebhookStatus $status,
-        public readonly string $secret,
-        public readonly LumaDate $createdAt,
+        public string $id,
+        public string $url,
+        public array $eventTypes,
+        public WebhookStatus $status,
+        public string $secret,
+        public LumaDate $createdAt,
     ) {}
 
     /**

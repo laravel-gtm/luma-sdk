@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace LaravelGtm\LumaSdk\Responses;
 
-class GetEventResponse
+readonly class GetEventResponse
 {
     /**
      * @param  HostResponse[]  $hosts
      */
     public function __construct(
-        public readonly EventResponse $event,
-        public readonly array $hosts,
+        public EventResponse $event,
+        public array $hosts,
     ) {}
 
     /**

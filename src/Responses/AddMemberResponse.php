@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace LaravelGtm\LumaSdk\Responses;
 
-class AddMemberResponse
+readonly class AddMemberResponse
 {
     public function __construct(
-        public readonly string $membershipId,
-        public readonly string $status,
+        public string $membershipId,
+        public string $status,
     ) {}
 
     /**

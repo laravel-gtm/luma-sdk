@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace LaravelGtm\LumaSdk\Responses;
 
-class UserResponse
+readonly class UserResponse
 {
     public function __construct(
-        public readonly string $id,
-        public readonly ?string $name,
-        public readonly string $avatarUrl,
-        public readonly string $email,
-        public readonly ?string $firstName,
-        public readonly ?string $lastName,
-        public readonly ?string $apiId = null,
+        public string $id,
+        public ?string $name,
+        public string $avatarUrl,
+        public string $email,
+        public ?string $firstName,
+        public ?string $lastName,
+        public ?string $apiId = null,
     ) {}
 
     /**

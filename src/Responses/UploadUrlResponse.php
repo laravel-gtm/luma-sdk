@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace LaravelGtm\LumaSdk\Responses;
 
-class UploadUrlResponse
+readonly class UploadUrlResponse
 {
     public function __construct(
-        public readonly string $uploadUrl,
-        public readonly string $fileUrl,
+        public string $uploadUrl,
+        public string $fileUrl,
     ) {}
 
     /**

@@ -6,22 +6,22 @@ namespace LaravelGtm\LumaSdk\Responses;
 
 use LaravelGtm\LumaSdk\ValueObjects\LumaDate;
 
-class PersonResponse
+readonly class PersonResponse
 {
     /**
      * @param  TagResponse[]  $tags
      */
     public function __construct(
-        public readonly string $id,
-        public readonly ?string $email,
-        public readonly LumaDate $createdAt,
-        public readonly int $eventApprovedCount,
-        public readonly int $eventCheckedInCount,
-        public readonly int $revenueUsdCents,
-        public readonly array $tags,
-        public readonly UserResponse $user,
-        public readonly ?PersonMembershipResponse $membership,
-        public readonly ?string $apiId,
+        public string $id,
+        public ?string $email,
+        public LumaDate $createdAt,
+        public int $eventApprovedCount,
+        public int $eventCheckedInCount,
+        public int $revenueUsdCents,
+        public array $tags,
+        public UserResponse $user,
+        public ?PersonMembershipResponse $membership,
+        public ?string $apiId,
     ) {}
 
     /**

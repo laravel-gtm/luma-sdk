@@ -6,19 +6,19 @@ namespace LaravelGtm\LumaSdk\Responses;
 
 use LaravelGtm\LumaSdk\Enums\AccessInfoType;
 
-class AccessInfoResponse
+readonly class AccessInfoResponse
 {
     public function __construct(
-        public readonly AccessInfoType $type,
-        public readonly bool $requireApproval,
-        public readonly ?int $amount,
-        public readonly ?string $currency,
-        public readonly ?string $stripeAccountId,
-        public readonly ?string $stripeProductId,
-        public readonly ?string $stripeMonthlyPriceId,
-        public readonly ?int $amountMonthly,
-        public readonly ?string $stripeYearlyPriceId,
-        public readonly ?int $amountYearly,
+        public AccessInfoType $type,
+        public bool $requireApproval,
+        public ?int $amount,
+        public ?string $currency,
+        public ?string $stripeAccountId,
+        public ?string $stripeProductId,
+        public ?string $stripeMonthlyPriceId,
+        public ?int $amountMonthly,
+        public ?string $stripeYearlyPriceId,
+        public ?int $amountYearly,
     ) {}
 
     /**

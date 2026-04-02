@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace LaravelGtm\LumaSdk\Responses;
 
-class CancellationTokenResponse
+readonly class CancellationTokenResponse
 {
     public function __construct(
-        public readonly string $cancellationToken,
-        public readonly bool $isPaid,
-        public readonly int $guestCount,
+        public string $cancellationToken,
+        public bool $isPaid,
+        public int $guestCount,
     ) {}
 
     /**

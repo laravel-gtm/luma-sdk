@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace LaravelGtm\LumaSdk\Responses;
 
-class CalendarEventEntry
+readonly class CalendarEventEntry
 {
     /**
      * @param  TagResponse[]  $tags
      */
     public function __construct(
-        public readonly ?string $apiId,
-        public readonly EventResponse $event,
-        public readonly array $tags,
+        public ?string $apiId,
+        public EventResponse $event,
+        public array $tags,
     ) {}
 
     /**

@@ -6,11 +6,11 @@ namespace LaravelGtm\LumaSdk\Responses;
 
 use LaravelGtm\LumaSdk\Enums\MemberStatus;
 
-class PersonMembershipResponse
+readonly class PersonMembershipResponse
 {
     public function __construct(
-        public readonly MemberStatus $status,
-        public readonly ?string $calendarMembershipTierId,
+        public MemberStatus $status,
+        public ?string $calendarMembershipTierId,
     ) {}
 
     /**

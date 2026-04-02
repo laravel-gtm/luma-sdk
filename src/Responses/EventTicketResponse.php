@@ -6,19 +6,19 @@ namespace LaravelGtm\LumaSdk\Responses;
 
 use LaravelGtm\LumaSdk\ValueObjects\LumaDate;
 
-class EventTicketResponse
+readonly class EventTicketResponse
 {
     public function __construct(
-        public readonly string $id,
-        public readonly ?int $amount,
-        public readonly ?int $amountDiscount,
-        public readonly ?int $amountTax,
-        public readonly ?string $currency,
-        public readonly ?LumaDate $checkedInAt,
-        public readonly ?string $eventTicketTypeId,
-        public readonly ?bool $isCaptured,
-        public readonly ?string $name,
-        public readonly ?string $apiId,
+        public string $id,
+        public ?int $amount,
+        public ?int $amountDiscount,
+        public ?int $amountTax,
+        public ?string $currency,
+        public ?LumaDate $checkedInAt,
+        public ?string $eventTicketTypeId,
+        public ?bool $isCaptured,
+        public ?string $name,
+        public ?string $apiId,
     ) {}
 
     /**

@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace LaravelGtm\LumaSdk\Responses;
 
-class EventTicketOrderResponse
+readonly class EventTicketOrderResponse
 {
     public function __construct(
-        public readonly string $id,
-        public readonly ?int $amount,
-        public readonly ?int $amountDiscount,
-        public readonly ?int $amountTax,
-        public readonly ?string $currency,
-        public readonly ?bool $isCaptured,
-        public readonly ?string $apiId,
+        public string $id,
+        public ?int $amount,
+        public ?int $amountDiscount,
+        public ?int $amountTax,
+        public ?string $currency,
+        public ?bool $isCaptured,
+        public ?string $apiId,
     ) {}
 
     /**

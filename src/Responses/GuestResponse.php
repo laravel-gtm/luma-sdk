@@ -7,7 +7,7 @@ namespace LaravelGtm\LumaSdk\Responses;
 use LaravelGtm\LumaSdk\Enums\ApprovalStatus;
 use LaravelGtm\LumaSdk\ValueObjects\LumaDate;
 
-class GuestResponse
+readonly class GuestResponse
 {
     /**
      * @param  EventTicketResponse[]  $eventTickets
@@ -15,29 +15,29 @@ class GuestResponse
      * @param  array<mixed>  $registrationAnswers
      */
     public function __construct(
-        public readonly string $id,
-        public readonly ?string $userId,
-        public readonly ?string $userEmail,
-        public readonly ?string $userName,
-        public readonly ?string $userFirstName,
-        public readonly ?string $userLastName,
-        public readonly ApprovalStatus $approvalStatus,
-        public readonly ?string $checkInQrCode,
-        public readonly ?string $ethAddress,
-        public readonly ?LumaDate $invitedAt,
-        public readonly ?LumaDate $joinedAt,
-        public readonly ?string $phoneNumber,
-        public readonly ?LumaDate $registeredAt,
-        public readonly array $registrationAnswers,
-        public readonly ?string $solanaAddress,
-        public readonly ?string $utmSource,
-        public readonly ?string $customSource,
-        public readonly array $eventTickets,
-        public readonly ?EventTicketResponse $eventTicket,
-        public readonly array $eventTicketOrders,
-        public readonly ?string $apiId,
-        public readonly ?string $userApiId,
-        public readonly ?LumaDate $checkedInAt,
+        public string $id,
+        public ?string $userId,
+        public ?string $userEmail,
+        public ?string $userName,
+        public ?string $userFirstName,
+        public ?string $userLastName,
+        public ApprovalStatus $approvalStatus,
+        public ?string $checkInQrCode,
+        public ?string $ethAddress,
+        public ?LumaDate $invitedAt,
+        public ?LumaDate $joinedAt,
+        public ?string $phoneNumber,
+        public ?LumaDate $registeredAt,
+        public array $registrationAnswers,
+        public ?string $solanaAddress,
+        public ?string $utmSource,
+        public ?string $customSource,
+        public array $eventTickets,
+        public ?EventTicketResponse $eventTicket,
+        public array $eventTicketOrders,
+        public ?string $apiId,
+        public ?string $userApiId,
+        public ?LumaDate $checkedInAt,
     ) {}
 
     /**

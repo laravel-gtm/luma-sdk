@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace LaravelGtm\LumaSdk\Responses;
 
-class LookupEventResponse
+readonly class LookupEventResponse
 {
     public function __construct(
-        public readonly ?string $apiId,
-        public readonly ?string $status,
+        public ?string $apiId,
+        public ?string $status,
     ) {}
 
     /**

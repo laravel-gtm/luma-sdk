@@ -9,36 +9,36 @@ use LaravelGtm\LumaSdk\ValueObjects\GooglePlaceId;
 use LaravelGtm\LumaSdk\ValueObjects\LumaDate;
 use LaravelGtm\LumaSdk\ValueObjects\LumaDuration;
 
-class EventResponse
+readonly class EventResponse
 {
     /**
      * @param  array<mixed>  $registrationQuestions
      */
     public function __construct(
-        public readonly string $id,
-        public readonly ?string $userId,
-        public readonly ?string $calendarId,
-        public readonly LumaDate $startAt,
-        public readonly ?LumaDate $endAt,
-        public readonly LumaDate $createdAt,
-        public readonly ?LumaDuration $durationInterval,
-        public readonly ?string $timezone,
-        public readonly string $name,
-        public readonly ?string $description,
-        public readonly ?string $descriptionMd,
-        public readonly ?GooglePlaceId $geoAddressJson,
-        public readonly ?float $geoLatitude,
-        public readonly ?float $geoLongitude,
-        public readonly ?string $meetingUrl,
-        public readonly ?string $coverUrl,
-        public readonly string $url,
-        public readonly ?Visibility $visibility,
-        public readonly array $registrationQuestions,
-        public readonly ?string $feedbackEmail,
-        public readonly ?string $apiId,
-        public readonly ?string $userApiId,
-        public readonly ?string $calendarApiId,
-        public readonly ?string $zoomMeetingUrl,
+        public string $id,
+        public ?string $userId,
+        public ?string $calendarId,
+        public LumaDate $startAt,
+        public ?LumaDate $endAt,
+        public LumaDate $createdAt,
+        public ?LumaDuration $durationInterval,
+        public ?string $timezone,
+        public string $name,
+        public ?string $description,
+        public ?string $descriptionMd,
+        public ?GooglePlaceId $geoAddressJson,
+        public ?float $geoLatitude,
+        public ?float $geoLongitude,
+        public ?string $meetingUrl,
+        public ?string $coverUrl,
+        public string $url,
+        public ?Visibility $visibility,
+        public array $registrationQuestions,
+        public ?string $feedbackEmail,
+        public ?string $apiId,
+        public ?string $userApiId,
+        public ?string $calendarApiId,
+        public ?string $zoomMeetingUrl,
     ) {}
 
     /**

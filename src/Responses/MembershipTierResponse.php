@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace LaravelGtm\LumaSdk\Responses;
 
-class MembershipTierResponse
+readonly class MembershipTierResponse
 {
     public function __construct(
-        public readonly string $id,
-        public readonly string $name,
-        public readonly ?string $description,
-        public readonly ?string $tintColor,
-        public readonly AccessInfoResponse $accessInfo,
+        public string $id,
+        public string $name,
+        public ?string $description,
+        public ?string $tintColor,
+        public AccessInfoResponse $accessInfo,
     ) {}
 
     /**

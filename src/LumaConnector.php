@@ -11,13 +11,11 @@ use Saloon\RateLimitPlugin\Contracts\RateLimitStore;
 use Saloon\RateLimitPlugin\Limit;
 use Saloon\RateLimitPlugin\Stores\MemoryStore;
 use Saloon\RateLimitPlugin\Traits\HasRateLimits;
-use Saloon\Traits\Plugins\AcceptsJson;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 use Saloon\Traits\Plugins\HasTimeout;
 
 class LumaConnector extends Connector
 {
-    use AcceptsJson;
     use AlwaysThrowOnErrors;
     use HasRateLimits;
     use HasTimeout;
@@ -48,6 +46,14 @@ class LumaConnector extends Connector
         }
 
         return new HeaderAuthenticator($this->token, 'x-luma-api-key');
+    }
+
+    protected function defaultHeaders(): array
+    {
+        return [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ];
     }
 
     protected function resolveLimits(): array

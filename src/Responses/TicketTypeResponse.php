@@ -7,28 +7,28 @@ namespace LaravelGtm\LumaSdk\Responses;
 use LaravelGtm\LumaSdk\Enums\TicketPriceType;
 use LaravelGtm\LumaSdk\ValueObjects\LumaDate;
 
-class TicketTypeResponse
+readonly class TicketTypeResponse
 {
     /**
      * @param  array<mixed>  $ethereumTokenRequirements
      */
     public function __construct(
-        public readonly string $id,
-        public readonly string $name,
-        public readonly bool $requireApproval,
-        public readonly bool $isHidden,
-        public readonly ?string $description,
-        public readonly ?LumaDate $validStartAt,
-        public readonly ?LumaDate $validEndAt,
-        public readonly ?int $maxCapacity,
-        public readonly ?string $membershipRestriction,
-        public readonly array $ethereumTokenRequirements,
-        public readonly TicketPriceType $type,
-        public readonly ?int $cents,
-        public readonly ?string $currency,
-        public readonly ?bool $isFlexible,
-        public readonly ?int $minCents,
-        public readonly ?string $apiId,
+        public string $id,
+        public string $name,
+        public bool $requireApproval,
+        public bool $isHidden,
+        public ?string $description,
+        public ?LumaDate $validStartAt,
+        public ?LumaDate $validEndAt,
+        public ?int $maxCapacity,
+        public ?string $membershipRestriction,
+        public array $ethereumTokenRequirements,
+        public TicketPriceType $type,
+        public ?int $cents,
+        public ?string $currency,
+        public ?bool $isFlexible,
+        public ?int $minCents,
+        public ?string $apiId,
     ) {}
 
     /**

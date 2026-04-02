@@ -4,22 +4,22 @@ declare(strict_types=1);
 
 namespace LaravelGtm\LumaSdk\Responses;
 
-class CalendarResponse
+readonly class CalendarResponse
 {
     public function __construct(
-        public readonly string $id,
-        public readonly string $name,
-        public readonly ?string $slug,
-        public readonly ?string $avatarUrl,
-        public readonly ?string $url,
-        public readonly ?string $description,
-        public readonly ?string $socialImageUrl,
-        public readonly ?string $coverImageUrl,
-        public readonly ?bool $isPersonal,
-        public readonly ?string $instagramHandle,
-        public readonly ?string $twitterHandle,
-        public readonly ?string $youtubeHandle,
-        public readonly ?string $website,
+        public string $id,
+        public string $name,
+        public ?string $slug,
+        public ?string $avatarUrl,
+        public ?string $url,
+        public ?string $description,
+        public ?string $socialImageUrl,
+        public ?string $coverImageUrl,
+        public ?bool $isPersonal,
+        public ?string $instagramHandle,
+        public ?string $twitterHandle,
+        public ?string $youtubeHandle,
+        public ?string $website,
     ) {}
 
     /**

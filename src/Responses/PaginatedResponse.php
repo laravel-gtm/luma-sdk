@@ -7,15 +7,15 @@ namespace LaravelGtm\LumaSdk\Responses;
 /**
  * @template T
  */
-class PaginatedResponse
+readonly class PaginatedResponse
 {
     /**
      * @param  T[]  $entries
      */
     public function __construct(
-        public readonly array $entries,
-        public readonly bool $hasMore = false,
-        public readonly ?string $nextCursor = null,
+        public array $entries,
+        public bool $hasMore = false,
+        public ?string $nextCursor = null,
     ) {}
 
     /**

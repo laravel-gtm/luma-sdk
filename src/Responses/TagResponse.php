@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace LaravelGtm\LumaSdk\Responses;
 
-class TagResponse
+readonly class TagResponse
 {
     public function __construct(
-        public readonly string $apiId,
-        public readonly string $name,
-        public readonly ?string $color = null,
+        public string $apiId,
+        public string $name,
+        public ?string $color = null,
     ) {}
 
     /**

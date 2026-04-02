@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace LaravelGtm\LumaSdk\Responses;
 
-class TagRemoveResponse
+readonly class TagRemoveResponse
 {
     public function __construct(
-        public readonly int $removedCount,
-        public readonly int $skippedCount,
+        public int $removedCount,
+        public int $skippedCount,
     ) {}
 
     /**

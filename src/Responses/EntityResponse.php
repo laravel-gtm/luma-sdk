@@ -6,12 +6,12 @@ namespace LaravelGtm\LumaSdk\Responses;
 
 use LaravelGtm\LumaSdk\Enums\EntityType;
 
-class EntityResponse
+readonly class EntityResponse
 {
     public function __construct(
-        public readonly EntityType $type,
-        public readonly ?CalendarResponse $calendar,
-        public readonly ?EventResponse $event,
+        public EntityType $type,
+        public ?CalendarResponse $calendar,
+        public ?EventResponse $event,
     ) {}
 
     /**

@@ -6,17 +6,17 @@ namespace LaravelGtm\LumaSdk\Responses;
 
 use LaravelGtm\LumaSdk\ValueObjects\LumaDate;
 
-class CouponResponse
+readonly class CouponResponse
 {
     public function __construct(
-        public readonly string $apiId,
-        public readonly string $code,
-        public readonly ?int $remainingCount,
-        public readonly ?LumaDate $validStartAt,
-        public readonly ?LumaDate $validEndAt,
-        public readonly ?float $percentOff,
-        public readonly ?int $centsOff,
-        public readonly ?string $currency,
+        public string $apiId,
+        public string $code,
+        public ?int $remainingCount,
+        public ?LumaDate $validStartAt,
+        public ?LumaDate $validEndAt,
+        public ?float $percentOff,
+        public ?int $centsOff,
+        public ?string $currency,
     ) {}
 
     /**
