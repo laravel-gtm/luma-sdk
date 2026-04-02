@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-04-02
+
+### Changed
+- Replace `AcceptsJson` trait with explicit `defaultHeaders()` on `LumaConnector` for both `Content-Type` and `Accept` headers
+- Promote all 26 Response DTOs to `readonly class` for stronger immutability guarantees
+- Upgrade PHPStan static analysis from level 5 to level 8
+
 ## [0.2.1] - 2026-04-02
 
 ### Fixed
@@ -57,7 +64,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Orchestra Testbench test infrastructure
 - Pint auto-fix CI workflow
 
-[Unreleased]: https://github.com/laravel-gtm/luma-sdk/compare/v0.2.1...HEAD
+[Unreleased]: https://github.com/laravel-gtm/luma-sdk/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/laravel-gtm/luma-sdk/compare/v0.2.1...v0.3.0
 [0.2.1]: https://github.com/laravel-gtm/luma-sdk/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/laravel-gtm/luma-sdk/compare/v0.1.2...v0.2.0
 [0.1.2]: https://github.com/laravel-gtm/luma-sdk/compare/v0.1.1...v0.1.2
