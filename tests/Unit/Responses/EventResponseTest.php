@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use LaravelGtm\LumaSdk\Enums\Visibility;
 use LaravelGtm\LumaSdk\Responses\EventResponse;
+use LaravelGtm\LumaSdk\ValueObjects\FeedbackEmail;
 use LaravelGtm\LumaSdk\ValueObjects\LumaDate;
 use LaravelGtm\LumaSdk\ValueObjects\LumaDuration;
 
@@ -23,6 +24,7 @@ it('creates an event response from array', function (): void {
         'url' => 'https://lu.ma/test-event',
         'visibility' => 'public',
         'registration_questions' => [],
+        'feedback_email' => ['enabled' => true, 'delay' => 'PT30M'],
         'api_id' => 'evt_123',
     ]);
 
@@ -34,6 +36,9 @@ it('creates an event response from array', function (): void {
     expect($response->durationInterval?->toSeconds())->toBe(7200);
     expect($response->visibility)->toBe(Visibility::Public);
     expect($response->url)->toBe('https://lu.ma/test-event');
+    expect($response->feedbackEmail)->toBeInstanceOf(FeedbackEmail::class);
+    expect($response->feedbackEmail?->enabled)->toBeTrue();
+    expect($response->feedbackEmail?->delay?->toString())->toBe('PT30M');
 });
 
 it('handles nullable event fields', function (): void {

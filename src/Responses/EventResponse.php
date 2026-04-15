@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace LaravelGtm\LumaSdk\Responses;
 
 use LaravelGtm\LumaSdk\Enums\Visibility;
+use LaravelGtm\LumaSdk\ValueObjects\FeedbackEmail;
 use LaravelGtm\LumaSdk\ValueObjects\GooglePlaceId;
 use LaravelGtm\LumaSdk\ValueObjects\LumaDate;
 use LaravelGtm\LumaSdk\ValueObjects\LumaDuration;
@@ -34,7 +35,7 @@ readonly class EventResponse
         public string $url,
         public ?Visibility $visibility,
         public array $registrationQuestions,
-        public ?string $feedbackEmail,
+        public ?FeedbackEmail $feedbackEmail,
         public ?string $apiId,
         public ?string $userApiId,
         public ?string $calendarApiId,
@@ -66,7 +67,7 @@ readonly class EventResponse
             url: (string) $data['url'],
             visibility: isset($data['visibility']) ? Visibility::from((string) $data['visibility']) : null,
             registrationQuestions: (array) ($data['registration_questions'] ?? []),
-            feedbackEmail: isset($data['feedback_email']) ? (string) $data['feedback_email'] : null,
+            feedbackEmail: isset($data['feedback_email']) && is_array($data['feedback_email']) ? FeedbackEmail::fromArray($data['feedback_email']) : null,
             apiId: isset($data['api_id']) ? (string) $data['api_id'] : null,
             userApiId: isset($data['user_api_id']) ? (string) $data['user_api_id'] : null,
             calendarApiId: isset($data['calendar_api_id']) ? (string) $data['calendar_api_id'] : null,
